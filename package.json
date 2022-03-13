@@ -21,18 +21,18 @@
     "dist/"
   ],
   "scripts": {
-    "build": "task docker:build",
+    "build": "bash start.sh && task docker:build",
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
-    "lint": "bash start.sh && task list",
+    "lint": "bash start.sh && task lint",
     "preload": "bash start.sh && task preload",
     "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
     "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
     "release": "bash start.sh && task publish:semantic-release",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "test -z SKIP_NPM_START && bash start.sh || true",
-    "test": "task docker:test",
+    "test": "bash start.sh && task docker:test",
     "unpack": "bash start.sh && task npm:bundle:unpack",
     "update": "bash start.sh && task update"
   },
@@ -51,7 +51,7 @@
     "handlebars-helpers": "latest",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "typescript": "latest"
+    "typescript": "^4.5.5"
   },
   "keywords": [
     "ci",
@@ -80,9 +80,15 @@
       "Go"
     ],
     "description": "A multi-stage Docker build that produces a slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+    "dockerLatestSize": {
+      "golangci-lint": "116M"
+    },
     "dockerSlimCommand": {
       "codeclimate-eslint": "--http-probe=false --exec 'golangci-lint --help'",
       "golangci-lint": "--http-probe=false --exec 'golangci-lint --help'"
+    },
+    "dockerSlimSize": {
+      "golangci-lint": "18M"
     },
     "github_id": "R_kgDOG_v_Ow",
     "gitlab_group_id": "14556970",
