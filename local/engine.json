@@ -1,11 +1,11 @@
 {
-  "name": "",
-  "description": "",
+  "name": "golangci-lint",
+  "description": "A multi-stage Docker build that produces a slim golangci-lint container and a CodeClimate engine container for GitLab CI",
   "maintainer": {
     "name": "Megabyte Labs",
     "email": "help@megabyte.space"
   },
-  "languages": ,
-  "version": "8.11.0",
+  "languages": ["Go"],
+  "version": "0.0.0",
   "spec_version": "0.3.1"
 }

@@ -26,11 +26,11 @@ vars:
   NPM_PROGRAM_LOCAL: pnpm
   NPX_HANDLE: 'pnpx '
   NPX_PACKAGE: pnpx
-  PROJECT_TYPE: common
+  PROJECT_TYPE: project
   PYTHON_HANDLE: 'poetry run '
   PYTHON_VIRTUALENV: true
   REPOSITORY_SUBTYPE: codeclimate
-  REPOSITORY_TYPE: common
+  REPOSITORY_TYPE: docker
   SEMANTIC_CONFIG: semantic-release-config
   TIMEZONE: America/New_York
 
@@ -676,7 +676,7 @@ tasks:
       success: Successfully synchronized the project with upstream file changes and also bootstrapped the project
       error: Error encountered while starting up the project
     cmds:
-      - task: upstream:common
+      - task: upstream:project
 
   test:
     deps:

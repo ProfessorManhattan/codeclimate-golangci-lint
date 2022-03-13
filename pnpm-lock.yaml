@@ -6,16 +6,14 @@ neverBuiltDependencies:
   - highlight.js
 
 specifiers:
-  '@commitlint/config-conventional': latest
   eslint-config-strict-mode: latest
   git-cz-emoji: latest
   handlebars-helpers: latest
   prettier-config-sexy-mode: latest
   semantic-release-config: latest
-  typescript: latest
+  typescript: ^4.5.5
 
 devDependencies:
-  '@commitlint/config-conventional': 16.2.1
   eslint-config-strict-mode: 1.0.53_typescript@4.6.2
   git-cz-emoji: 1.1.24
   handlebars-helpers: 0.10.0
@@ -254,13 +252,6 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
-    dev: true
-
-  /@commitlint/config-conventional/16.2.1:
-    resolution: {integrity: sha512-cP9gArx7gnaj4IqmtCIcHdRjTYdRUi6lmGE+lOzGGjGe45qGOS8nyQQNvkNy2Ey2VqoSWuXXkD8zCUh6EHf1Ww==}
-    engines: {node: '>=v12'}
-    dependencies:
-      conventional-changelog-conventionalcommits: 4.6.3
     dev: true
 
   /@commitlint/config-validator/16.2.1:
@@ -2205,15 +2196,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       compare-func: 2.0.0
-      q: 1.5.1
-    dev: true
-
-  /conventional-changelog-conventionalcommits/4.6.3:
-    resolution: {integrity: sha512-LTTQV4fwOM4oLPad317V/QNQ1FY4Hju5qeBIM1uTHbrnCE+Eg4CdRZ3gO2pUeR+tzWdp80M2j3qFFEDWVqOV4g==}
-    engines: {node: '>=10'}
-    dependencies:
-      compare-func: 2.0.0
-      lodash: 4.17.21
       q: 1.5.1
     dev: true
 

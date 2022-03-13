@@ -1,12 +1,12 @@
 <!-- ⚠️ This README has been generated from the file(s) ".config/docs/blueprint-readme-codeclimate.md" ⚠️--><div align="center">
   <center>
     <a href="https://github.com/ProfessorManhattan/codeclimate-golangci-lint">
-      <img width="148" height="148" alt="[[ package.json .blueprint.name - See CONTRIBUTING.md ]] logo" src="https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/-/raw/master/logo.png" />
+      <img width="148" height="148" alt="golangci-lint logo" src="https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/-/raw/master/logo.png" />
     </a>
   </center>
 </div>
 <div align="center">
-  <center><h1 align="center"><i></i>[[ package.json .blueprint.title - See CONTRIBUTING.md ]]<i></i></h1></center>
+  <center><h1 align="center"><i></i>`golangci-lint` CodeClimate Engine/Standalone Container<i></i></h1></center>
   <center><h4 style="color: #18c3d1;">A slim Docker image and CodeClimate engine maintained by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
 </div>
 
@@ -29,22 +29,22 @@
 </div>
 <br/>
 <div align="center">
-  <a title="Version: 8.11.0" href="https://github.com/ProfessorManhattan/codeclimate-golangci-lint" target="_blank">
-    <img alt="Version: 8.11.0" src="https://img.shields.io/badge/version-8.11.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
+  <a title="Version: 0.0.0" href="https://github.com/ProfessorManhattan/codeclimate-golangci-lint" target="_blank">
+    <img alt="Version: 0.0.0" src="https://img.shields.io/badge/version-0.0.0-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUCNdjIACY//+BEp9hhM3hAzYQwoBIAqEDYQrCZLwAAGlFKxU1nF9cAAAAAElFTkSuQmCC&cacheSeconds=2592000&style=flat-square" />
   </a>
   <a title="GitLab build status" href="https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/-/commits/master" target="_blank">
-    <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/docker/codeclimate/slug?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
+    <img alt="Build status" src="https://img.shields.io/gitlab/pipeline-status/megabyte-labs/docker/codeclimate/golangci-lint?branch=master&label=build&logo=gitlab&logoColor=white&style=flat-square">
   </a>
-  <a title="DockerHub image size" href="https://hub.docker.com/repository/docker/megabytelabs/slug" target="_blank">
-    <img alt="Image size" src="https://img.shields.io/docker/image-size/megabytelabs/slug?logo=docker&sort=date&logoColor=white&style=flat-square">
+  <a title="DockerHub image size" href="https://hub.docker.com/repository/docker/megabytelabs/golangci-lint" target="_blank">
+    <img alt="Image size" src="https://img.shields.io/docker/image-size/megabytelabs/golangci-lint?logo=docker&sort=date&logoColor=white&style=flat-square">
   </a>
-  <a title="DockerHub pulls" href="https://hub.docker.com/repository/docker/megabytelabs/slug" target="_blank">
-    <img alt="Pulls" src="https://img.shields.io/docker/pulls/megabytelabs/slug?logo=docker&logoColor=white&style=flat-square">
+  <a title="DockerHub pulls" href="https://hub.docker.com/repository/docker/megabytelabs/golangci-lint" target="_blank">
+    <img alt="Pulls" src="https://img.shields.io/docker/pulls/megabytelabs/golangci-lint?logo=docker&logoColor=white&style=flat-square">
   </a>
-  <a title="DockerHub stars" href="https://hub.docker.com/repository/docker/megabytelabs/slug" target="_blank">
-    <img alt="Stars" src="https://img.shields.io/docker/stars/megabytelabs/slug?logo=docker&logoColor=white&style=flat-square">
+  <a title="DockerHub stars" href="https://hub.docker.com/repository/docker/megabytelabs/golangci-lint" target="_blank">
+    <img alt="Stars" src="https://img.shields.io/docker/stars/megabytelabs/golangci-lint?logo=docker&logoColor=white&style=flat-square">
   </a>
-  <a title="Documentation" href="https://megabyte.space/docs/common" target="_blank">
+  <a title="Documentation" href="https://megabyte.space/docs/docker" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?logo=readthedocs&logoColor=white&style=flat-square" />
   </a>
   <a title="License: MIT" href="https://github.com/ProfessorManhattan/codeclimate-golangci-lint/blob/master/LICENSE" target="_blank">
@@ -52,7 +52,7 @@
   </a>
 </div>
 
-> </br><h4 align="center">**pkg.description**</h4></br>
+> </br><h4 align="center">**A multi-stage Docker build that produces a slim golangci-lint container and a CodeClimate engine container for GitLab CI**</h4></br>
 
 <a href="#table-of-contents" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -81,13 +81,13 @@
 
 ## Overview
 
-[[This is a new repository without the details filled in yet. Look for the section about blueprint data in the CONTRIBUTING.md to set up the project.]]
+This project is the home of [`golangci-lint`](https://golangci-lint.run/) [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.
 
 ### Standalone
 
-If you are interested in using the tool and have no need for CodeClimate integration, you can get the `latest`, `slim`, and versioned images without CodeClimate-related code by removing the `codeclimate-` string from the image name. For example, if the image is named `megabytelabs/codeclimate-slug`, then you can get the same image without CodeClimate-related code by using the `megabytelabs/slug` image. For a full listing of images to choose from, check out the [DockerHub page for this project](https://hub.docker.com/r/megabytelabs/slug).
+If you are interested in using the tool and have no need for CodeClimate integration, you can get the `latest`, `slim`, and versioned images without CodeClimate-related code by removing the `codeclimate-` string from the image name. For example, if the image is named `megabytelabs/codeclimate-golangci-lint`, then you can get the same image without CodeClimate-related code by using the `megabytelabs/golangci-lint` image. For a full listing of images to choose from, check out the [DockerHub page for this project](https://hub.docker.com/r/megabytelabs/golangci-lint).
 
-_Note:_ The DockerHub page for the CodeClimate engine version of this project is located on the aforementioned DockerHub page and also on a [separate DockerHub page](https://hub.docker.com/r/megabytelabs/codeclimate-slug) prefixed with `codeclimate-`.
+_Note:_ The DockerHub page for the CodeClimate engine version of this project is located on the aforementioned DockerHub page and also on a [separate DockerHub page](https://hub.docker.com/r/megabytelabs/codeclimate-golangci-lint) prefixed with `codeclimate-`.
 
 ### Slim Build
 
@@ -114,7 +114,7 @@ Multiple methods of testing are used to ensure both the `latest` and `slim` buil
 - **[Node.js](repository.project.node)** (_>=14.18_) - Utilized to add development features like a pre-commit hook and maintenance tasks
 - _Many more_ requirements that are _dynamically installed_ as they are needed by our `Taskfile.yml` via our custom [go-task/task](https://github.com/go-task/task) fork named **[Bodega](https://github.com/ProfessorManhattan/Bodega)**
 
-If you choose to utilize the development tools provided by this project then at some point you will have to run `bash start.sh` (or `npm i` which calls `bash start.sh` after it is done). The `start.sh` script will attempt to automatically install any requirements (without sudo) that are not already present on your build system to the user's `~/.local/bin` folder. The `start.sh` script also takes care of other tasks such as generating the documentation by calling tasks defined in the `Taskfile.yml`. For more details on how the optional requirements are used and set up, check out the [CONTRIBUTING.md](https://gitlab.com/megabyte-labs/docker/codeclimate/slug/-/blob/master/docs/CONTRIBUTING.md) guide.
+If you choose to utilize the development tools provided by this project then at some point you will have to run `bash start.sh` (or `npm i` which calls `bash start.sh` after it is done). The `start.sh` script will attempt to automatically install any requirements (without sudo) that are not already present on your build system to the user's `~/.local/bin` folder. The `start.sh` script also takes care of other tasks such as generating the documentation by calling tasks defined in the `Taskfile.yml`. For more details on how the optional requirements are used and set up, check out the [CONTRIBUTING.md](https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/-/blob/master/docs/CONTRIBUTING.md) guide.
 
 When you are ready to start development, run `task --menu` to open an interactive dialog that will help you understand what build commands we have already engineered for you.
 
@@ -125,16 +125,16 @@ When you are ready to start development, run `task --menu` to open an interactiv
 There are several different ways you can use the Docker container provided by this project. For starters, you can test the tool out locally by running:
 
 ```shell
-docker run -it -v ${PWD}:/work -w /work --rm megabytelabs/slug:latest --help
+docker run -it -v ${PWD}:/work -w /work --rm megabytelabs/golangci-lint:latest --help
 ```
 
-This allows you to run [[package.json .blueprint.name - See CONTRIBUTING.md]] without installing it locally. It also removes the image from your system when you are done. This could be good for security since the application is within a container and also keeps your file system clean.
+This allows you to run golangci-lint without installing it locally. It also removes the image from your system when you are done. This could be good for security since the application is within a container and also keeps your file system clean.
 
-You can also add a bash alias to your `~/.bashrc` file so that you can run the [[package.json .blueprint.name - See CONTRIBUTING.md]] command at any time. To do this, add the following snippet to your `~/.profile` file (or equivalent):
+You can also add a bash alias to your `~/.bashrc` file so that you can run the golangci-lint command at any time. To do this, add the following snippet to your `~/.profile` file (or equivalent):
 
 ```shell
-slug() {
-    docker run -it -v ${PWD}:/work -w /work --rm megabytelabs/slug:latest "$@"
+golangci-lint() {
+    docker run -it -v ${PWD}:/work -w /work --rm megabytelabs/golangci-lint:latest "$@"
 }
 ```
 
@@ -155,7 +155,7 @@ If you want to incorporate CodeClimate into your project, you need to ensure tha
 ```yml
 ---
 engines:
-  slug:
+  golangci-lint:
     enabled: true
 exclude_paths:
   - 'node_modules/**'
@@ -164,8 +164,8 @@ exclude_paths:
 Also, before you run the CodeClimate CLI, you need to ensure that this project's CodeClimate image is pulled to your local cache and properly tagged for CodeClimate. You can accomplish this by running:
 
 ```shell
-docker pull megabytelabs/codeclimate-slug:latest
-docker tag megabytelabs/codeclimate-slug:latest codeclimate/codeclimate-slug:latest
+docker pull megabytelabs/codeclimate-golangci-lint:latest
+docker tag megabytelabs/codeclimate-golangci-lint:latest codeclimate/codeclimate-golangci-lint:latest
 ```
 
 After that, you need to invoke the CodeClimate CLI by passing the `--dev` parameter. This may seem hacky but it is the only way of using CodeClimate engines that are not officially hosted in the `codeclimate` namespace on DockerHub. Your CLI command might look something like this:
@@ -192,10 +192,10 @@ stages:
   - lint
 
 include:
-  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/lint/slug.gitlab-ci.yml
+  - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/lint/golangci-lint.gitlab-ci.yml
 ```
 
-That is it! [[package.json .blueprint.name - See CONTRIBUTING.md]] will now run anytime you commit code (that matches the parameters laid out in the `remote:` file above). Ideally, for production, you should copy the source code from the `remote:` link above to another location and update the `remote:` link to the file's new location. That way, you do not have to worry about any changes that are made to the `remote:` file by our team.
+That is it! golangci-lint will now run anytime you commit code (that matches the parameters laid out in the `remote:` file above). Ideally, for production, you should copy the source code from the `remote:` link above to another location and update the `remote:` link to the file's new location. That way, you do not have to worry about any changes that are made to the `remote:` file by our team.
 
 {{ load:docs/partials/guide.md }}
 
@@ -207,8 +207,8 @@ You may have a use case that requires some modifications to our Docker image. Af
 export DOCKERHUB_USERNAME=Your_DockerHub_Username_Here
 export DOCKERHUB_PASSWORD=Your_DockerHub_Password_Here
 docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD" docker.io
-docker build --pull -t "$DOCKERHUB_USERNAME/slug:latest" .
-docker push "$DOCKERHUB_USERNAME/slug:latest"
+docker build --pull -t "$DOCKERHUB_USERNAME/golangci-lint:latest" .
+docker push "$DOCKERHUB_USERNAME/golangci-lint:latest"
 ```
 
 After setting your DockerHub username and password, the commands above will build the Docker image and upload it to [Docker Hub](https://hub.docker.com/) where it will be publicly accessible. You can see this logic being implemented as a [GitLab CI task here](repository.link.dockerhub_ci_task). This GitLab CI task works in conjunction with the `.gitlab-ci.yml` file in the root of this repository.
@@ -225,14 +225,14 @@ To build and publish a `slim` Dockerfile to Docker Hub manually, you can use the
 export DOCKERHUB_USERNAME=Your_DockerHub_Username_Here
 export DOCKERHUB_PASSWORD=Your_DockerHub_Password_Here
 docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD" docker.io
-docker build -t "$DOCKERHUB_USERNAME/slug:latest" .
-docker-slim build --tag $DOCKERHUB_USERNAME/slug:slim {{#if (eq (typeOf dockerSlimCommand) "string")}}dockerSlimCommand}}{{/if{{#if (not (eq (typeOf dockerSlimCommand) "string"))}}dockerSlimCommand[slug]}}{{/if $DOCKERHUB_USERNAME/slug:latest
-docker push "$DOCKERHUB_USERNAME/slug:slim"
+docker build -t "$DOCKERHUB_USERNAME/golangci-lint:latest" .
+docker-slim build --tag $DOCKERHUB_USERNAME/golangci-lint:slim {{#if (eq (typeOf dockerSlimCommand) "string")}}dockerSlimCommand}}{{/if{{#if (not (eq (typeOf dockerSlimCommand) "string"))}}dockerSlimCommand[slug]}}{{/if $DOCKERHUB_USERNAME/golangci-lint:latest
+docker push "$DOCKERHUB_USERNAME/golangci-lint:slim"
 ```
 
 It may be possible to modify the DockerSlim command above to fix an issue or reduce the footprint even more than our command. You can modify the slim build command inline in the `package.json` file under `blueprint.dockerSlimCommand`. Some of our repositories have multiple build targets in the `Dockerfile` so those repositories will have multiple `dockerSlimCommands`.
 
-If you come up with an improvement, please do [open a pull request](repository.group.dockerCodeClimate/slug/-/issues/new). And again, make sure you replace `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` in the snippet above with your Docker Hub username and password. The commands in the snippet above will build the slim Docker image and upload it to [Docker Hub](https://hub.docker.com/) where it will be publicly accessible.
+If you come up with an improvement, please do [open a pull request](repository.group.dockerCodeClimate/golangci-lint/-/issues/new). And again, make sure you replace `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` in the snippet above with your Docker Hub username and password. The commands in the snippet above will build the slim Docker image and upload it to [Docker Hub](https://hub.docker.com/) where it will be publicly accessible.
 
 ### Build Tools
 
@@ -240,7 +240,7 @@ You might notice that we have a lot of extra files considering that this reposit
 
 _Note:_ We use a custom-built version of [go-task/task](https://github.com/go-task/task) so if you already have it installed then you should either replace it with our version or use a different bin name for `task`.
 
-For more details, check out the [CONTRIBUTING.md](https://gitlab.com/megabyte-labs/docker/codeclimate/slug/-/blob/master/CONTRIBUTING.md) file.
+For more details, check out the [CONTRIBUTING.md](https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/-/blob/master/CONTRIBUTING.md) file.
 
 <a href="#philosophy" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
