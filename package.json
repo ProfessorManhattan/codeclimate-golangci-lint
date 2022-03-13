@@ -2,7 +2,7 @@
   "private": false,
   "name": "@megabytelabs/codeclimate-golangci-lint",
   "version": "1.44.2",
-  "description": "A multi-stage Docker build that produces a slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+  "description": "A slim golangci-lint container and a CodeClimate engine container for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
@@ -79,7 +79,7 @@
     "codeClimateLanguages": [
       "Go"
     ],
-    "description": "A multi-stage Docker build that produces a slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+    "description": "A slim golangci-lint container and a CodeClimate engine container for GitLab CI",
     "dockerLatestSize": {
       "golangci-lint": "116M"
     },
