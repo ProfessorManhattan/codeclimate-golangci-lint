@@ -21,7 +21,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "task docker:build",
+    "build": "bash start.sh && task docker:build",
     "commit": "bash start.sh && task commit",
     "fix": "bash start.sh && task fix",
     "help": "bash start.sh && task --menu",
@@ -32,7 +32,7 @@
     "release": "bash start.sh && task publish:semantic-release",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "test -z SKIP_NPM_START && bash start.sh || true",
-    "test": "task docker:test",
+    "test": "bash start.sh && task docker:test",
     "unpack": "bash start.sh && task npm:bundle:unpack",
     "update": "bash start.sh && task update"
   },
