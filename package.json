@@ -101,7 +101,10 @@
     "slug": "golangci-lint",
     "subgroup": "codeclimate",
     "title": "golangci-lint CodeClimate Engine",
-    "versionCommand": "docker run -it megabytelabs/golangci-lint:latest --version | sed 's/^.*version //' | sed 's/ .*$//'"
+    "versionCommand": "docker run -it megabytelabs/golangci-lint:latest --version | sed 's/^.*version //' | sed 's/ .*$//'",
+    "github_id": "R_kgDOG_v_Ow",
+    "gitlab_project_id": "33862422",
+    "gitlab_group_id": "14556970"
   },
   "changelog": {
     "displayTypes": [
