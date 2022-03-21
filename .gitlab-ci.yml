@@ -32,4 +32,4 @@ integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
     - cd test/output-sample
-    - task -t ../../Taskfile.yml lint:codeclimate
+    - task lint:codeclimate
