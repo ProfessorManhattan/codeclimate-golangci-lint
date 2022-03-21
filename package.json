@@ -79,31 +79,29 @@
     "codeClimateLanguages": [
       "Go"
     ],
-    "description": "A slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+    "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
     "dockerLatestSize": {
       "golangci-lint": "116M"
     },
+    "dockerBaseTag": "golangci-lint",
     "dockerSlimCommand": {
-      "codeclimate-eslint": "--http-probe=false --exec 'golangci-lint --help'",
+      "codeclimate": "--http-probe=false --exec 'golangci-lint --help'",
       "golangci-lint": "--http-probe=false --exec 'golangci-lint --help'"
     },
     "dockerSlimSize": {
       "golangci-lint": "18M"
     },
-    "github_id": "R_kgDOG_v_Ow",
-    "gitlab_group_id": "14556970",
-    "gitlab_project_id": "33862422",
     "group": "docker",
     "name": "golangci-lint",
-    "overview": "This project is the home of [`golangci-lint`](https://golangci-lint.run/) [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.",
+    "overview": "This project is the home of a **[golangci-lint](https://golangci-lint.run/)** [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical builds in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.",
     "repository": {
       "github": "https://github.com/ProfessorManhattan/codeclimate-golangci-lint",
       "gitlab": "https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint"
     },
     "slug": "golangci-lint",
     "subgroup": "codeclimate",
-    "title": "`golangci-lint` CodeClimate Engine/Standalone Container",
-    "versionCommand": "docker run -it megabytelabs/golangci-lint --version | sed 's/.*version //' | sed 's/ built.*//'"
+    "title": "golangci-lint CodeClimate Engine",
+    "versionCommand": "docker run -it megabytelabs/golangci-lint:latest --version | sed 's/^.*version //' | sed 's/ .*$//'"
   },
   "changelog": {
     "displayTypes": [

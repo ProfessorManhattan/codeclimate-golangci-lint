@@ -1,0 +1,4 @@
+---
+engines:
+  golangci-lint:
+    enabled: true
