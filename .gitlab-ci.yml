@@ -27,7 +27,7 @@ integration:standalone:
     name: megabytelabs/golangci-lint:slim
     entrypoint: ['']
   script:
-    - flake8 -c .config/flake8.toml .
+    - golangci-lint run
 integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
