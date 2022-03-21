@@ -27,7 +27,7 @@ integration:standalone:
     name: megabytelabs/golangci-lint:slim
     entrypoint: ['']
   script:
-    - golangci-lint run
+    - golangci-lint --version
 integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
