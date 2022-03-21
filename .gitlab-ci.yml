@@ -22,3 +22,14 @@ include:
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/publish/semantic-release.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/test/docker/slim.gitlab-ci.yml
   - remote: https://gitlab.com/megabyte-labs/gitlab-ci/-/raw/master/update/project.gitlab-ci.yml
+integration:standalone:
+  image:
+    name: megabytelabs/golangci-lint:slim
+    entrypoint: ['']
+  script:
+    - flake8 -c .config/flake8.toml .
+integration:codeclimate:
+  image: megabytelabs/codeclimate:slim
+  script:
+    - cd test/output-sample
+    - task -t ../../Taskfile.yml lint:codeclimate
