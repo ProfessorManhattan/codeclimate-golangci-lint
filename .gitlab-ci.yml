@@ -31,5 +31,4 @@ integration:standalone:
 integration:codeclimate:
   image: megabytelabs/codeclimate:slim
   script:
-    - cd test/output-sample
     - task lint:codeclimate
