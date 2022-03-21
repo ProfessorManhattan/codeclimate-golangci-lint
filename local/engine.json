@@ -1,5 +1,5 @@
 {
-  "description": "A slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+  "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
   "languages": ["Go"],
   "maintainer": {
     "email": "help@megabyte.space",

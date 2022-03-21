@@ -2,7 +2,7 @@
   "private": false,
   "name": "@megabytelabs/codeclimate-golangci-lint",
   "version": "1.44.2",
-  "description": "A slim golangci-lint container and a CodeClimate engine container for GitLab CI",
+  "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
@@ -31,7 +31,7 @@
     "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
     "release": "bash start.sh && task publish:semantic-release",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "test -z SKIP_NPM_START && bash start.sh || true",
+    "start": "test -z $SKIP_NPM_START && bash start.sh || true",
     "test": "bash start.sh && task docker:test",
     "unpack": "bash start.sh && task npm:bundle:unpack",
     "update": "bash start.sh && task update"
@@ -72,7 +72,7 @@
     "node": ">=14.18.0"
   },
   "publishConfig": {
-    "@megabyte:registry": "https://gitlab.com/api/v4/projects/33862422/packages/npm/",
+    "@megabyte:registry": "https://gitlab.com/api/v4/projects//packages/npm/",
     "access": "public"
   },
   "blueprint": {
@@ -80,10 +80,10 @@
       "Go"
     ],
     "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
+    "dockerBaseTag": "golangci-lint",
     "dockerLatestSize": {
       "golangci-lint": "116M"
     },
-    "dockerBaseTag": "golangci-lint",
     "dockerSlimCommand": {
       "codeclimate": "--http-probe=false --exec 'golangci-lint --help'",
       "golangci-lint": "--http-probe=false --exec 'golangci-lint --help'"
@@ -139,6 +139,10 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
+  "jscpd": {
+    "gitignore": true,
+    "threshold": 0.1
+  },
   "lint-staged": {
     "(Brewfile|composer.lock|Gemfile|Gopkg.lock|Pipfile.lock)": [
       "task fix:prettier --"

@@ -6,7 +6,7 @@
   </center>
 </div>
 <div align="center">
-  <center><h1 align="center"><i></i>`golangci-lint` CodeClimate Engine/Standalone Container<i></i></h1></center>
+  <center><h1 align="center"><i></i>golangci-lint CodeClimate Engine<i></i></h1></center>
   <center><h4 style="color: #18c3d1;">A slim Docker image and CodeClimate engine maintained by <a href="https://megabyte.space" target="_blank">Megabyte Labs</a></h4><i></i></center>
 </div>
 
@@ -52,7 +52,7 @@
   </a>
 </div>
 
-> </br><h4 align="center">**A slim golangci-lint container and a CodeClimate engine container for GitLab CI**</h4></br>
+> </br><h4 align="center">**A slim golangci-lint container and CodeClimate engine for GitLab CI**</h4></br>
 
 <a href="#table-of-contents" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
 
@@ -70,6 +70,7 @@
     - [CodeClimate GitLab CI Example](#codeclimate-gitlab-ci-example)
     - [CodeClimate CLI Walkthrough](#codeclimate-cli-walkthrough)
     - [Standalone Integration](#standalone-integration)
+- [Configuring golangci-lint](#configuring-golangci-lint)
   - [Building the Docker Container](#building-the-docker-container)
   - [Building a Slim Container](#building-a-slim-container)
   - [Build Tools](#build-tools)
@@ -81,7 +82,7 @@
 
 ## Overview
 
-This project is the home of [`golangci-lint`](https://golangci-lint.run/) [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.
+This project is the home of a **[golangci-lint](https://golangci-lint.run/)** [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical builds in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.
 
 ### Standalone
 
@@ -197,7 +198,11 @@ include:
 
 That is it! golangci-lint will now run anytime you commit code (that matches the parameters laid out in the `remote:` file above). Ideally, for production, you should copy the source code from the `remote:` link above to another location and update the `remote:` link to the file's new location. That way, you do not have to worry about any changes that are made to the `remote:` file by our team.
 
-{{ load:docs/partials/guide.md }}
+<a href="#configuring-golangci-lint" style="width:100%"><img style="width:100%" src="https://gitlab.com/megabyte-labs/assets/-/raw/master/png/aqua-divider.png" /></a>
+
+## Configuring golangci-lint
+
+There are many linters you can include in your `golangci-lint` configuration. You can check out a [list of all the linters here](https://golangci-lint.run/usage/linters/).
 
 ### Building the Docker Container
 
