@@ -5,7 +5,9 @@ WORKDIR /usr
 COPY local/engine.json ./engine.json
 
 RUN apt-get update \
-  && apt-get install -y curl \
+  && apt-get install -y \
+  ca-certificates
+  curl \
   jq \
   && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.44.2 \
   && VERSION="$(golangci-lint --version | sed 's/.*version //' | sed 's/ built.*//')" \
@@ -14,6 +16,10 @@ RUN apt-get update \
 FROM golang:1.17-alpine as golangci-builder
 
 COPY --from=builder /usr/bin/golangci-lint /usr/bin/golangci-lint
+
+RUN apt-get update \
+    && apt-get install -y \
+    ca-certificates
 
 LABEL maintainer="Megabyte Labs <help@megabyte.space>"
 LABEL org.opencontainers.image.authors="Brian Zalewski <brian@megabyte.space>"
@@ -26,13 +32,13 @@ LABEL org.opencontainers.image.source="https://gitlab.com/megabyte-labs/docker/c
 LABEL org.opencontainers.image.url="https://megabyte.space"
 LABEL org.opencontainers.image.vendor="Megabyte Labs"
 LABEL org.opencontainers.image.version=$VERSION
-LABEL space.megabyte.type="code-climate"
+LABEL space.megabyte.type="codeclimate"
 
 FROM golangci-builder AS golangci-lint
 
 ENTRYPOINT ["golangci-lint"]
 CMD ["--version"]
-LABEL space.megabyte.type="code-climate-standalone"
+LABEL space.megabyte.type="linter"
 
 FROM golangci-builder AS codeclimate
 
