@@ -31,7 +31,8 @@ tasks:
       start: Pulling latest changes
       success: Successfully pulled latest changes
     cmds:
-      - git pull
+      - cmd: git pull
+        ignore_error: true
       - |
         if [ "$CI_COMMIT_REF_NAME" == 'synchronize' ]; then
           git checkout master
@@ -40,6 +41,8 @@ tasks:
           git checkout "$CI_COMMIT_REF_NAME"
           git pull origin "$CI_COMMIT_REF_NAME"
         fi
+    status:
+      - '[ -n "$NO_GIT_CREDS" ]'
 
   codeclimate:
     deps:
@@ -69,28 +72,32 @@ tasks:
   commit:
     deps:
       - :install:software:git
+    vars:
+      CURR_BRANCH:
+        sh: git rev-parse --abbrev-ref HEAD
     log:
-      error: Encountered error while pushing changes to master
-      start: Bypassing git hooks and pushing changes to master (if there are any changes)
+      error: Encountered error while pushing changes to {{.CURR_BRANCH}}
+      start: Bypassing git hooks and pushing changes to {{.CURR_BRANCH}} (if there are any changes)
     cmds:
       - task: commit:config
       - task: lockfiles:clean
-      - |
-        task --list > /dev/null || (echo "ERROR: Invalid Taskfiles!" && exit 1)
-        git add --all
+      - task --list > /dev/null || (echo "ERROR Invalid Taskfiles!" && exit 1)
+      - git add --all
       - git diff --cached "*"
       - |
         if [[ $(git status --porcelain) ]]; then
-          git commit -m "⤵️ automation(synchronize) Applying changes from upstream repository."
-          git push -q -o ci.skip origin master || FAILED_PUSH=$?
+          git commit -m "☁️ chore(automation): Applying changes from upstream repository."
+          git push -q -o ci.skip origin {{.CURR_BRANCH}} || FAILED_PUSH=$?
           if [ -n "$FAILED_PUSH" ]; then
-            git pull origin master
+            git pull -X theirs origin {{.CURR_BRANCH}}
             task --list &> /dev/null || (echo "ERROR: Invalid Taskfiles!" && exit 1)
-            git push --force -q -o ci.skip origin master
+            git add --all
+            git commit -m "☁️ chore(automation): Merging changes from upstream repository with -X theirs."
+            git push --force -q -o ci.skip origin {{.CURR_BRANCH}}
           fi
         fi
     status:
-      - '[ -z "$CI" ]'
+      - '[ -z "$CI" ] || [ -n "$NO_GIT_CREDS" ]'
 
   commit:config:
     deps:
@@ -142,11 +149,12 @@ tasks:
         DEFAULT_BRANCH="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')";
         git checkout -q "$DEFAULT_BRANCH"; git pull -q origin "$DEFAULT_BRANCH" --ff-only'
     status:
-      - '[ -z "$CI" ]'
+      - '[ -z "$CI" ] || [ -n "$NO_GIT_CREDS" ]'
 
   synchronize:
     deps:
       - commit:config
+    run: once
     log:
       error: Failed to update the `synchronize` branch
       start: Synchronizing the `synchronize` branch with the `master` branch
@@ -164,10 +172,13 @@ tasks:
         fi
       - task: synchronize:gitlab
       - git checkout master
+    status:
+      - '[ -n "$NO_GIT_CREDS" ] || ([ "$FULLY_AUTOMATED_TASKS" != "true" ] && [ -z "$CI" ])'
 
   synchronize:gitlab:
+    run: once
     cmds:
       - curl -s --request POST --form "token=${CI_JOB_TOKEN}" --form ref=master --form "variables[PIPELINE_SOURCE]=$PIPELINE_SOURCE"
         "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/trigger/pipeline"
     status:
-      - '[ -z "$GITLAB_CI" ]'
+      - '[ -z "$GITLAB_CI" ] || [ -n "$NO_GITLAB_SYNCHRONIZE" ]'

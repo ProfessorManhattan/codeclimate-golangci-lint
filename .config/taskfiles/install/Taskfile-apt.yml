@@ -44,7 +44,8 @@ tasks:
       - sudo apt-get update
       - sudo apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl
       - sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-      - echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+      - echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main"
+        | sudo tee /etc/apt/sources.list.d/kubernetes.list
       - sudo apt-get update
       - sudo apt-get install -y --no-install-recommends kubectl
 
@@ -54,6 +55,12 @@ tasks:
       - sudo bash /tmp/node_setup.sh
       - rm /tmp/node_setup.sh
       - sudo apt-get update && sudo apt-get install -y --no-install-recommends nodejs
+
+  packer:
+    cmds:
+      - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      - sudo apt-get update && sudo apt-get install packer
 
   python:
     cmds:
@@ -72,6 +79,12 @@ tasks:
       - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
       - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
       - sudo apt-get update && sudo apt-get install -y --no-install-recommends terraform
+
+  vagrant:
+    cmds:
+      - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      - sudo apt-get update && sudo apt-get install vagrant
 
   waypoint:
     cmds:

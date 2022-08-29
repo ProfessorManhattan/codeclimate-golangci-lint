@@ -28,7 +28,6 @@
     "lint": "bash start.sh && task lint",
     "preload": "bash start.sh && task preload",
     "prepare": "bash start.sh && (test -f Taskfile.yml && task npm:prepare) || true",
-    "prepublishOnly": "test -z $SKIP_PREPUB && bash start.sh && task npm:bundle:create || true",
     "release": "bash start.sh && task publish:semantic-release",
     "repair": "bash <(curl -sS https://install.doctor/repair)",
     "start": "test -z $SKIP_NPM_START && bash start.sh || true",
@@ -45,13 +44,13 @@
   "dependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@commitlint/config-conventional": "latest",
     "eslint-config-strict-mode": "latest",
     "git-cz-emoji": "latest",
-    "handlebars-helpers": "latest",
     "prettier-config-sexy-mode": "latest",
     "semantic-release-config": "latest",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "@commitlint/config-conventional": "latest",
+    "handlebars-helpers": "latest"
   },
   "keywords": [
     "ci",
@@ -95,7 +94,7 @@
     "name": "golangci-lint",
     "overview": "This project is the home of a **[golangci-lint](https://golangci-lint.run/)** [CodeClimate](https://codeclimate.com/) engine and a standalone, compact image containing `golangci-lint`. It was built to integrate `golangci-lint` results into the GitLab merge request web UI. The project consists of a minimal multi-stage build that produces images that are likely to load faster than typical builds in CI/CD environments. `golangci-lint` is a multi-linter that combines dozens of linters and runs them very fast, in addition to providing a combined report.",
     "repository": {
-      "github": "https://github.com/ProfessorManhattan/codeclimate-golangci-lint",
+      "github": "https://github.com/megabyte-labs/codeclimate-golangci-lint",
       "gitlab": "https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint"
     },
     "slug": "golangci-lint",
@@ -117,9 +116,7 @@
     "showAuthor": true
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
+    "extends": [],
     "helpUrl": "https://megabyte.space/docs/contributing/commits"
   },
   "engine": "node >= 0.12.4",

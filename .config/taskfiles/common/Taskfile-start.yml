@@ -10,7 +10,6 @@ vars:
     sh: mktemp
 
 env:
-  AUTO_COMMIT_MESSAGE: 'false'
   PREPARE_PROJECT: 'true'
   UPDATE_GIT_REPOS: 'true'
 
@@ -25,32 +24,23 @@ tasks:
   commit:
     run: once
     cmds:
-      - task: commit:auto
-      - task: commit:manual
-    status:
-      - '[ -z "$AUTO_COMMIT" ]'
-
-  commit:auto:
-    run: once
-    cmds:
-      - task: :commit:quick
+      - task: :git:commit:automated
+      - task: :git:push:all
       - task: :ci:synchronize
-    status:
-      - '[ "$AUTO_COMMIT_MESSAGE" != "true" ]'
-
-  commit:manual:
-    run: once
-    cmds:
-      - task: :commit:all
-      - task: :ci:synchronize
-    status:
-      - '[ "$AUTO_COMMIT_MESSAGE" == "true" ]'
 
   dev:
     cmds:
       - task: setup
     status:
       - '([ -z "$CI" ] && [ -f /.dockerenv ])'
+
+  devcontainer:
+    cmds:
+      - task: :install:modules:local
+      - task: :install:python:requirements:poetry
+      - task: :git:remotes
+    status:
+      - '[ ! -f /.devcontainer ]'
 
   docker:
     cmds:
@@ -80,7 +70,7 @@ tasks:
     cmds:
       - task: :prepare
     status:
-      - '[ "$PREPARE_PROJECT" != "true" ]'
+      - '[ "$PREPARE_PROJECT" != "true" ] || [ -f /.devcontainer ]'
 
   prereqs:
     env:
@@ -89,7 +79,7 @@ tasks:
           if type brew &> /dev/null; then
             echo "$PATH"
           else
-            . "$HOME/.profile" &> /dev/null
+            . "$HOME/.profile" &> /dev/null || true
             echo "$PATH"
           fi
     run: once
@@ -106,11 +96,12 @@ tasks:
 
   register:env:
     cmds:
-      - |
-        . "$HOME/.profile" &> /dev/null
-        echo "$PATH" > '{{.ENV_PATH}}'
-        echo "$GOBIN" > '{{.ENV_GOBIN}}'
-        echo "$GOROOT" > '{{.ENV_GOROOT}}'
+      - cmd: |
+          . "$HOME/.profile" &> /dev/null || true
+          echo "$PATH" > '{{.ENV_PATH}}'
+          echo "$GOBIN" > '{{.ENV_GOBIN}}'
+          echo "$GOROOT" > '{{.ENV_GOROOT}}'
+        ignore_error: true
     status:
       - type jq &> /dev/null
       - type yq &> /dev/null
@@ -163,6 +154,7 @@ tasks:
       - task: prepare
       - task: update
       - task: commit
+      - task: devcontainer
     status:
       - '[ -n "$CI" ]'
 
@@ -172,7 +164,7 @@ tasks:
       - task: :upstream:{{.PROJECT_TYPE}}
       - task: update:git
     status:
-      - '[ "$UPDATE_PROJECT" == "true" ]'
+      - '[ "$UPDATE_PROJECT" == "true" ] || [ -f /.devcontainer ]'
 
   update:git:
     run: once

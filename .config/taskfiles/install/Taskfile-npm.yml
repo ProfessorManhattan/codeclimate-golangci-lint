@@ -17,6 +17,13 @@ tasks:
           BIN_NAME: bw
           PACKAGE: '@bitwarden/cli'
 
+  browserslist:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: browserslist
+
   bundle:
     cmds:
       - task: :install:modules:global
@@ -55,6 +62,14 @@ tasks:
           PACKAGE: '@commitlint/cli'
     status:
       - '[ -n "$CI" ]'
+
+  crowdin:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          BIN_NAME: crowdin
+          PACKAGE: '@crowdin/cli'
 
   cspell:
     run: once
@@ -144,23 +159,28 @@ tasks:
     cmds:
       - |
         if [ -n "$CI" ]; then echo "*************** npm global --> {{.PACKAGE}}"; fi
-      - '{{.NPM_PROGRAM}} install -g {{.PACKAGE}}'
+      - volta install {{.PACKAGE}}'
     status:
       - '[[ "$PACKAGE_EXISTS" == "true" ]]'
 
   global:package-manager:
+    deps:
+      - :install:software:node
+      - :install:software:volta
     run: once
-    log:
-      error: Failed to install `{{.NPM_PROGRAM}}`
-      start: Installing `{{.NPM_PROGRAM}}`
-      success: Successfully installed `{{.NPM_PROGRAM}}`
     cmds:
-      - task: :install:software:node
-      - |
-        if [ -n "$CI" ]; then echo "*************** npm global --> {{.PACKAGE}}"; fi
-      - npm install -g {{.NPM_PROGRAM}}
+      - .config/log info 'Installing `{{.NPM_PROGRAM}}`'
+      - volta install {{.NPM_PROGRAM}}
+      - .config/log info 'Successfully installed `{{.NPM_PROGRAM}}`'
     status:
       - type {{.NPM_PROGRAM}} > /dev/null
+
+  htmlhint:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: htmlhint
 
   husky:
     run: once
@@ -169,19 +189,26 @@ tasks:
         vars:
           PACKAGE: husky
 
+  ifttt:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          BIN_NAME: ifttt
+          PACKAGE: ifttt-cli
+
   install:npm:
+    deps:
+      - global:package-manager
     vars:
       BIN: '{{if .BIN_NAME}}{{.BIN_NAME}}{{else}}{{.PACKAGE}}{{end}}'
     run: when_changed
-    log:
-      error: Failed to install NPM package `{{.PACKAGE}}` globally
-      start: Installing NPM package `{{.PACKAGE}}` globally
-      success: Installed NPM package `{{.PACKAGE}}` globally
     cmds:
-      - task: global:package-manager
+      - .config/log start 'Installing NPM package `{{.PACKAGE}}` globally'
       - |
-        if [ -n "$CI" ]; then echo "*************** npm global --> {{.PACKAGE}}"; fi
-      - '{{.NPM_PROGRAM}} install -g {{.PACKAGE}}'
+        PATH="$PATH:$HOME/.local/bin"
+        volta install {{.PACKAGE}}
+      - .config/log success 'Installed NPM package `{{.PACKAGE}}` globally'
     status:
       - type {{.BIN}} > /dev/null
 
@@ -384,6 +411,15 @@ tasks:
         vars:
           PACKAGE: prettier
 
+  quicktype:
+    run: once
+    tags:
+      - update
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: quicktype
+
   readme:
     run: once
     tags:
@@ -392,8 +428,16 @@ tasks:
       - task: install:npm
         vars:
           BIN_NAME: readme
-
           PACKAGE: '@appnest/readme'
+
+  real-favicon:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          BIN_NAME: real-favicon
+          PACKAGE: cli-real-favicon
+
   remark:
     run: once
     tags:
@@ -403,6 +447,13 @@ tasks:
         vars:
           BIN_NAME: remark
           PACKAGE: remark-cli
+
+  secretlint:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: secretlint
 
   semantic-release:
     run: once
@@ -448,6 +499,13 @@ tasks:
       - task: install:npm
         vars:
           PACKAGE: standard-version
+
+  stylelint:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: stylelint
 
   synp:
     run: once
@@ -498,6 +556,13 @@ tasks:
       - task: install:npm
         vars:
           PACKAGE: typesync
+
+  wrangler:
+    run: once
+    cmds:
+      - task: install:npm
+        vars:
+          PACKAGE: wrangler
 
   yarnhook:
     run: once

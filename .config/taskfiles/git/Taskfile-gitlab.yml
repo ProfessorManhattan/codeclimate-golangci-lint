@@ -15,7 +15,7 @@ tasks:
         sh: glab api projects/:fullpath | jq '.id'
       REQUEST_DATA: '{ "name":"PROJECT_CI_ACCESS_TOKEN", "scopes":["write_repository", "read_repository"] }'
       TOKEN_STATUS:
-        sh: type glab > /dev/null && glab api projects/:fullpath/access_tokens | jq -r '.[] | select(.name=="PROJECT_CI_ACCESS_TOKENX") | .id'
+        sh: type glab > /dev/null && glab api projects/:fullpath/access_tokens | jq -r '.[] | select(.name=="PROJECT_CI_ACCESS_TOKENX") | .id' || true
     run: once
     log:
       error: Failed to configure project-specific access token
@@ -27,7 +27,7 @@ tasks:
         'Content-Type:application/json' --data '{{.REQUEST_DATA}}' \
         'https://gitlab.com/api/v4/projects/{{.REPO_ID}}/access_tokens' > /dev/null
     status:
-      - '[ -n "{{.TOKEN_STATUS}}" ]'
+      - '[ -n "{{.TOKEN_STATUS}}" ] || ! glab api projects/:fullpath/access_tokens'
 
   branches:
     deps:
@@ -167,10 +167,24 @@ tasks:
         wait){{else}}){{end}}
 
   group:exec:prompt:
+    deps:
+      - :install:software:glab
+      - :install:software:jq
     interactive: true
     cmds:
-      - mkdir -p .cache
-      - node .config/scripts/prompts/gitlab-group.js
+      - |
+        GITLAB_GROUPS="$(glab api --paginate groups | jq -r '.[].full_path')"
+        GROUP_OPTION="$(gum choose "$ENVIRONMENT_OPTIONS")"
+        GUM_CONFIRM_MSG="Would you like to use the previously run script (i.e. .cache/gitlab-group.sh)?"
+        if [ -f .cache/gitlab-group.sh ] && gum confirm "$GUM_CONFIRM_MSG"; then
+          bash .cache/gitlab-group.sh
+        else
+          TMP="$(mktemp)"
+          gum write --placeholder "Enter the script you would like to run including the hashbang (CTRL+D to finish)" --show-cursor-line --show-line-numbers > "$TMP"
+          bash "$TMP"
+          mkdir -p .cache
+          mv "$TMP" > .cache/gitlab-group.sh
+        fi
 
   group:repositories:
     deps:
@@ -354,7 +368,37 @@ tasks:
     status:
       - '[ -z "$GITLAB_TOKEN" ]'
 
+  ssh-keys:
+    deps:
+      - :install:software:glab
+      - :install:software:jq
+    cmds:
+      - .config/log info 'Clearing GitLab SSH keys'
+      - |
+        KEY_URL='https://gitlab.com/api/v4/user/keys'
+        KEYIDS="$(curl -sSL --header "PRIVATE-TOKEN: $GITLAB_TOKEN" "$KEY_URL" | jq '.[].id')"
+        for KEYID in $KEYIDS; do
+          curl --header "PRIVATE-TOKEN: $GITLAB_TOKEN" -X DELETE "$KEY_URL/$KEYID"
+        done
+      - .config/log start 'Syncing SSH keys with GitLab'
+      - |
+        for KEY in `ls $HOME/.ssh/*.pub`; do
+          TITLE="$(cat $KEY | sed 's/\(.*\=\) \(.*\)$/\2/')"
+          glab ssh-key add $KEY -t "$TITLE"
+        done
+      - .config/log success 'Finished syncing SSH keys with GitLab'
+    preconditions:
+      - sh: '[ -n "$GITLAB_TOKEN" ]'
+        msg: The GITLAB_TOKEN must be set to a personal access token.
+
   update:
+    run: once
+    cmds:
+      - task: update:deps
+    status:
+      - '[ -z "$GITLAB_TOKEN" ] || ! type glab &> /dev/null'
+
+  update:deps:
     deps:
       - access-token
       - branches
@@ -364,7 +408,6 @@ tasks:
       - pipelines
       - update:meta
       - wiki
-    run: once
 
   update:meta:
     deps:
