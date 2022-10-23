@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@megabytelabs/codeclimate-golangci-lint",
-  "version": "1.44.2",
+  "version": "1.50.1",
   "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
