@@ -94,8 +94,8 @@
       "golangci-lint": "116M"
     },
     "dockerSlimCommand": {
-      "codeclimate": "--http-probe=false --exec 'golangci-lint --help' --include-path '/etc/ssl/certificates'",
-      "golangci-lint": "--http-probe=false --exec 'golangci-lint --help' --include-path '/etc/ssl/certificates'"
+      "codeclimate": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates'",
+      "golangci-lint": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates'"
     },
     "dockerSlimSize": {
       "golangci-lint": "18M"

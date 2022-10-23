@@ -19,7 +19,8 @@ COPY --from=builder /usr/bin/golangci-lint /usr/bin/golangci-lint
 
 RUN apt-get update \
     && apt-get install -y \
-    ca-certificates
+    ca-certificates \
+    curl
 
 LABEL maintainer="Megabyte Labs <help@megabyte.space>"
 LABEL org.opencontainers.image.authors="Brian Zalewski <brian@megabyte.space>"
