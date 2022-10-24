@@ -21,13 +21,13 @@
   },
   "source_image": {
     "identity": {
-      "id": "sha256:7802a6978fbf593e73bcb8a755b198ef0fd977dbb4bf151c658826881da2e869",
+      "id": "sha256:3567d2ed27387f59beb059bdcc215de9c2af3f9cc7590771deef60eddd2c7d47",
       "tags": ["latest", "latest-codeclimate"],
       "names": ["codeclimate/codeclimate-golangci-lint:latest", "megabytelabs/golangci-lint:latest-codeclimate"]
     },
     "size": 340323729,
     "size_human": "340 MB",
-    "create_time": "2022-10-24T02:16:00Z",
+    "create_time": "2022-10-24T02:17:04Z",
     "docker_version": "",
     "architecture": "amd64",
     "user": "app",
@@ -36,11 +36,11 @@
     "labels": {
       "maintainer": "Megabyte Labs <help@megabyte.space>",
       "org.opencontainers.image.authors": "Brian Zalewski <brian@megabyte.space>",
-      "org.opencontainers.image.created": "2022-10-23T22:15:31-04:00",
+      "org.opencontainers.image.created": "2022-10-23T22:16:49-04:00",
       "org.opencontainers.image.description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
       "org.opencontainers.image.documentation": "https://github.com/megabyte-labs/codeclimate-golangci-lint/blob/master/README.md",
       "org.opencontainers.image.licenses": "MIT",
-      "org.opencontainers.image.revision": "95d6cdbfec2a5a579dcdf8ab66ef7593663d0a52",
+      "org.opencontainers.image.revision": "4b0a99226316200d9f931fe733150555e058d4be",
       "org.opencontainers.image.source": "https://github.com/megabyte-labs/codeclimate-golangci-lint.git",
       "org.opencontainers.image.url": "https://megabyte.space",
       "org.opencontainers.image.vendor": "Megabyte Labs",
@@ -61,19 +61,19 @@
   "minified_image": "megabytelabs/golangci-lint:slim-codeclimate",
   "minified_image_has_data": true,
   "minified_by": 7.625298672183685,
-  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/7802a6978fbf593e73bcb8a755b198ef0fd977dbb4bf151c658826881da2e869/artifacts",
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/3567d2ed27387f59beb059bdcc215de9c2af3f9cc7590771deef60eddd2c7d47/artifacts",
   "container_report_name": "creport.json",
   "seccomp_profile_name": "codeclimate-codeclimate-golangci-lint-seccomp.json",
   "apparmor_profile_name": "codeclimate-codeclimate-golangci-lint-apparmor-profile",
   "image_stack": [
     {
       "is_top_image": true,
-      "id": "sha256:7802a6978fbf593e73bcb8a755b198ef0fd977dbb4bf151c658826881da2e869",
+      "id": "sha256:3567d2ed27387f59beb059bdcc215de9c2af3f9cc7590771deef60eddd2c7d47",
       "full_name": "codeclimate/codeclimate-golangci-lint:latest",
       "repo_name": "codeclimate/codeclimate-golangci-lint",
       "version_tag": "latest",
       "raw_tags": ["codeclimate/codeclimate-golangci-lint:latest", "megabytelabs/golangci-lint:latest-codeclimate"],
-      "create_time": "2022-10-24T02:16:00Z",
+      "create_time": "2022-10-24T02:17:04Z",
       "new_size": 340323729,
       "new_size_human": "340 MB",
       "instructions": [
@@ -398,8 +398,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.creat...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:15:31-04:00\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:15:31-04:00\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:16:49-04:00\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:16:49-04:00\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
@@ -454,9 +454,9 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.revis...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=95d6cdbfec2a5a579dcdf8ab66ef7593663d0a52\"]",
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=4b0a99226316200d9f931fe733150555e058d4be\"]",
           "system_commands": [
-            "[\"LABEL\",\"org.opencontainers.image.revision=95d6cdbfec2a5a579dcdf8ab66ef7593663d0a52\"]"
+            "[\"LABEL\",\"org.opencontainers.image.revision=4b0a99226316200d9f931fe733150555e058d4be\"]"
           ],
           "comment": "buildkit.dockerfile.v0"
         },
@@ -543,7 +543,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:16:00Z",
+          "time": "2022-10-24T02:17:04Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -561,7 +561,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:16:00Z",
+          "time": "2022-10-24T02:17:04Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -574,7 +574,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:16:00Z",
+          "time": "2022-10-24T02:17:04Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -587,7 +587,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:16:00Z",
+          "time": "2022-10-24T02:17:04Z",
           "is_last_instruction": true,
           "is_nop": false,
           "is_exec_form": true,
