@@ -21,7 +21,7 @@
   },
   "source_image": {
     "identity": {
-      "id": "sha256:290cc7015920e4df84d1402da79da540cc2e6da0e032420d66b0295e649cc560",
+      "id": "sha256:aa69132d2ff61ce0580daf354c3a7ff25e975fb19d527ed1a136988c8d746a97",
       "tags": ["latest"],
       "names": ["megabytelabs/golangci-lint:latest"]
     },
@@ -35,11 +35,11 @@
     "labels": {
       "maintainer": "Megabyte Labs <help@megabyte.space>",
       "org.opencontainers.image.authors": "Brian Zalewski <brian@megabyte.space>",
-      "org.opencontainers.image.created": "2022-10-23T22:43:37-04:00",
+      "org.opencontainers.image.created": "2022-10-24T02:18:12-04:00",
       "org.opencontainers.image.description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
       "org.opencontainers.image.documentation": "https://github.com/megabyte-labs/codeclimate-golangci-lint/blob/master/README.md",
       "org.opencontainers.image.licenses": "MIT",
-      "org.opencontainers.image.revision": "e4d98d67399f0b68c9b429b8cfe44b4fb1a4736d",
+      "org.opencontainers.image.revision": "ce667d44581291cbc9248f07ec5e67ecc011c936",
       "org.opencontainers.image.source": "https://github.com/megabyte-labs/codeclimate-golangci-lint.git",
       "org.opencontainers.image.url": "https://megabyte.space",
       "org.opencontainers.image.vendor": "Megabyte Labs",
@@ -60,14 +60,14 @@
   "minified_image": "megabytelabs/golangci-lint:slim",
   "minified_image_has_data": true,
   "minified_by": 7.6251980946525935,
-  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/290cc7015920e4df84d1402da79da540cc2e6da0e032420d66b0295e649cc560/artifacts",
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/aa69132d2ff61ce0580daf354c3a7ff25e975fb19d527ed1a136988c8d746a97/artifacts",
   "container_report_name": "creport.json",
   "seccomp_profile_name": "megabytelabs-golangci-lint-seccomp.json",
   "apparmor_profile_name": "megabytelabs-golangci-lint-apparmor-profile",
   "image_stack": [
     {
       "is_top_image": true,
-      "id": "sha256:290cc7015920e4df84d1402da79da540cc2e6da0e032420d66b0295e649cc560",
+      "id": "sha256:aa69132d2ff61ce0580daf354c3a7ff25e975fb19d527ed1a136988c8d746a97",
       "full_name": "megabytelabs/golangci-lint:latest",
       "repo_name": "megabytelabs/golangci-lint",
       "version_tag": "latest",
@@ -397,8 +397,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.creat...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:43:37-04:00\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:43:37-04:00\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-24T02:18:12-04:00\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-24T02:18:12-04:00\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
@@ -453,9 +453,9 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.revis...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=e4d98d67399f0b68c9b429b8cfe44b4fb1a4736d\"]",
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=ce667d44581291cbc9248f07ec5e67ecc011c936\"]",
           "system_commands": [
-            "[\"LABEL\",\"org.opencontainers.image.revision=e4d98d67399f0b68c9b429b8cfe44b4fb1a4736d\"]"
+            "[\"LABEL\",\"org.opencontainers.image.revision=ce667d44581291cbc9248f07ec5e67ecc011c936\"]"
           ],
           "comment": "buildkit.dockerfile.v0"
         },
