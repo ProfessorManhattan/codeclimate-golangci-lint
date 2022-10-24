@@ -21,13 +21,13 @@
   },
   "source_image": {
     "identity": {
-      "id": "sha256:76faa4c4496077ca8d682f399ab703c8b976162e9b687b883941c68ee11693bf",
+      "id": "sha256:bd2232260bcd8096be850806e3dd393b44223a1721457773d7e1d47a1fe57de8",
       "tags": ["latest", "latest-codeclimate"],
       "names": ["codeclimate/codeclimate-golangci-lint:latest", "megabytelabs/golangci-lint:latest-codeclimate"]
     },
     "size": 340323729,
     "size_human": "340 MB",
-    "create_time": "2022-10-24T02:21:13Z",
+    "create_time": "2022-10-24T02:25:55Z",
     "docker_version": "",
     "architecture": "amd64",
     "user": "app",
@@ -36,15 +36,15 @@
     "labels": {
       "maintainer": "Megabyte Labs <help@megabyte.space>",
       "org.opencontainers.image.authors": "Brian Zalewski <brian@megabyte.space>",
-      "org.opencontainers.image.created": "2022-10-23T22:19:13-04:00",
+      "org.opencontainers.image.created": "2022-10-23T22:25:29-04:00",
       "org.opencontainers.image.description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
       "org.opencontainers.image.documentation": "https://github.com/megabyte-labs/codeclimate-golangci-lint/blob/master/README.md",
       "org.opencontainers.image.licenses": "MIT",
-      "org.opencontainers.image.revision": "a0bb77cb52a20856e979057c661a14510e234dc2",
+      "org.opencontainers.image.revision": "dbe2a09ada4bf53518c7c49a65ce0f55fffd8051",
       "org.opencontainers.image.source": "https://github.com/megabyte-labs/codeclimate-golangci-lint.git",
       "org.opencontainers.image.url": "https://megabyte.space",
       "org.opencontainers.image.vendor": "Megabyte Labs",
-      "org.opencontainers.image.version": "",
+      "org.opencontainers.image.version": "1.50.1",
       "space.megabyte.type": "codeclimate"
     },
     "env_vars": [
@@ -61,19 +61,19 @@
   "minified_image": "megabytelabs/golangci-lint:slim-codeclimate",
   "minified_image_has_data": true,
   "minified_by": 7.625298672183685,
-  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/76faa4c4496077ca8d682f399ab703c8b976162e9b687b883941c68ee11693bf/artifacts",
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/bd2232260bcd8096be850806e3dd393b44223a1721457773d7e1d47a1fe57de8/artifacts",
   "container_report_name": "creport.json",
   "seccomp_profile_name": "codeclimate-codeclimate-golangci-lint-seccomp.json",
   "apparmor_profile_name": "codeclimate-codeclimate-golangci-lint-apparmor-profile",
   "image_stack": [
     {
       "is_top_image": true,
-      "id": "sha256:76faa4c4496077ca8d682f399ab703c8b976162e9b687b883941c68ee11693bf",
+      "id": "sha256:bd2232260bcd8096be850806e3dd393b44223a1721457773d7e1d47a1fe57de8",
       "full_name": "codeclimate/codeclimate-golangci-lint:latest",
       "repo_name": "codeclimate/codeclimate-golangci-lint",
       "version_tag": "latest",
       "raw_tags": ["codeclimate/codeclimate-golangci-lint:latest", "megabytelabs/golangci-lint:latest-codeclimate"],
-      "create_time": "2022-10-24T02:21:13Z",
+      "create_time": "2022-10-24T02:25:55Z",
       "new_size": 340323729,
       "new_size_human": "340 MB",
       "instructions": [
@@ -398,8 +398,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.creat...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:19:13-04:00\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:19:13-04:00\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:25:29-04:00\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-23T22:25:29-04:00\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
@@ -454,9 +454,9 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.revis...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=a0bb77cb52a20856e979057c661a14510e234dc2\"]",
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=dbe2a09ada4bf53518c7c49a65ce0f55fffd8051\"]",
           "system_commands": [
-            "[\"LABEL\",\"org.opencontainers.image.revision=a0bb77cb52a20856e979057c661a14510e234dc2\"]"
+            "[\"LABEL\",\"org.opencontainers.image.revision=dbe2a09ada4bf53518c7c49a65ce0f55fffd8051\"]"
           ],
           "comment": "buildkit.dockerfile.v0"
         },
@@ -510,8 +510,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.versi...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.version=\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.version=\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.version=1.50.1\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.version=1.50.1\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
@@ -543,7 +543,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:21:13Z",
+          "time": "2022-10-24T02:25:55Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -561,7 +561,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:21:13Z",
+          "time": "2022-10-24T02:25:55Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -574,7 +574,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:21:13Z",
+          "time": "2022-10-24T02:25:55Z",
           "is_nop": false,
           "is_exec_form": true,
           "local_image_exists": false,
@@ -587,7 +587,7 @@
         },
         {
           "type": "RUN",
-          "time": "2022-10-24T02:21:13Z",
+          "time": "2022-10-24T02:25:55Z",
           "is_last_instruction": true,
           "is_nop": false,
           "is_exec_form": true,
