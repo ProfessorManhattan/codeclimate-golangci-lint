@@ -3,12 +3,12 @@ schemaVersion: 2.0.0
 
 commandTests:
   - name: Test --version
-    setup: [[golangci-lint]]
-    command: --version
+    command: 'golangci-lint'
+    args: ['--version']
     exitCode: 0
   - name: Test --help
-    setup: [[golangci-lint]]
-    command: --help
+    command: 'golangci-lint'
+    args: ['--help']
     exitCode: 0
 
 metadataTest:
@@ -17,7 +17,6 @@ metadataTest:
       value: Megabyte Labs <help@megabyte.space>
     - key: space.megabyte.type
       value: linter
-  volumes: [/work]
   workdir: /work
-  entrypoint: [golangci-lint]
+  entrypoint: ['golangci-lint']
   user: root

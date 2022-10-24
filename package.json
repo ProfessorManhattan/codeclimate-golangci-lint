@@ -91,14 +91,16 @@
     "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
     "dockerBaseTag": "golangci-lint",
     "dockerLatestSize": {
-      "golangci-lint": "116M"
+      "golangci-lint": "117M",
+      "codeclimate": "117M"
     },
     "dockerSlimCommand": {
-      "codeclimate": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates'",
+      "codeclimate": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates' --preserve-path '/home/app'",
       "golangci-lint": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates'"
     },
     "dockerSlimSize": {
-      "golangci-lint": "18M"
+      "golangci-lint": "20M",
+      "codeclimate": "20M"
     },
     "github_id": "R_kgDOG_v_Ow",
     "gitlab_group_id": "14556970",

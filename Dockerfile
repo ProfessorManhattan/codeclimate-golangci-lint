@@ -18,6 +18,9 @@ RUN apt-get update \
 
 FROM golang:1.17-alpine AS golangci-builder
 
+WORKDIR /work
+USER root
+
 COPY --from=builder /usr/bin/golangci-lint /usr/bin/golangci-lint
 
 # hadolint ignore=DL3018
@@ -53,7 +56,9 @@ FROM golangci-builder AS codeclimate
 
 COPY --from=builder /engine.json /engine.json
 
-RUN adduser -u 9000 -D app
+RUN adduser -u 9000 -D app \
+  && mkdir -p /home/app \
+  && chown -Rf app:app /home/app
 
 USER app
 
