@@ -15,6 +15,19 @@ Grab this version by running:
 docker pull megabytelabs/golangci-lint:1.50.1
 ```
 
+## [1.50.2](https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/compare/v1.50.1...v1.50.2) (2022-10-24)
+
+
+
+
+
+Grab this version by running:
+
+
+```shell
+docker pull megabytelabs/golangci-lint:1.50.1
+```
+
 ## [1.44.5](https://gitlab.com/megabyte-labs/docker/codeclimate/golangci-lint/compare/v1.44.4...v1.44.5) (2022-10-24)
 
 
