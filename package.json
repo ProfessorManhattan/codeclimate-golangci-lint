@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@megabytelabs/codeclimate-golangci-lint",
-  "version": "1.50.4",
+  "version": "1.50.1",
   "description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
@@ -95,8 +95,8 @@
       "golangci-lint": "117M"
     },
     "dockerSlimCommand": {
-      "codeclimate": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates' --preserve-path '/home/app'",
-      "golangci-lint": "--http-probe=false --exec 'curl --version && golangci-lint --help' --include-path '/etc/ssl/certificates'"
+      "codeclimate": "--http-probe=false --exec 'curl --version && golangci-lint --help && golangci-lint run || true' --include-path '/etc/ssl/certificates' --preserve-path '/home/app'",
+      "golangci-lint": "--http-probe=false --exec 'curl --version && golangci-lint --help && golangci-lint run || true' --include-path '/etc/ssl/certificates'"
     },
     "dockerSlimSize": {
       "codeclimate": "20M",

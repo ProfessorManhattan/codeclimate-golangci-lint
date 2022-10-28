@@ -21,7 +21,7 @@
   },
   "source_image": {
     "identity": {
-      "id": "sha256:83ed40222768f3df001cc8bc3b03bda3c5336b8ff1c6633040aa7f81891c31e6",
+      "id": "sha256:c8c9a2e789dac51f6d2a17069cb3f377dc55bb470c8d5ae651f85b31077e21d3",
       "tags": ["latest"],
       "names": ["megabytelabs/golangci-lint:latest"]
     },
@@ -35,15 +35,15 @@
     "labels": {
       "maintainer": "Megabyte Labs <help@megabyte.space>",
       "org.opencontainers.image.authors": "Brian Zalewski <brian@megabyte.space>",
-      "org.opencontainers.image.created": "2022-10-24T02:49:32-04:00",
+      "org.opencontainers.image.created": "2022-10-27T22:52:03-04:00",
       "org.opencontainers.image.description": "A slim golangci-lint container and CodeClimate engine for GitLab CI",
       "org.opencontainers.image.documentation": "https://github.com/megabyte-labs/codeclimate-golangci-lint/blob/master/README.md",
       "org.opencontainers.image.licenses": "MIT",
-      "org.opencontainers.image.revision": "00b2bb8b99a42b5d466764794e9e70057958c66e",
+      "org.opencontainers.image.revision": "e6155789019eb17289953abd0f92e4a9f75102bf",
       "org.opencontainers.image.source": "https://github.com/megabyte-labs/codeclimate-golangci-lint.git",
       "org.opencontainers.image.url": "https://megabyte.space",
       "org.opencontainers.image.vendor": "Megabyte Labs",
-      "org.opencontainers.image.version": "1.50.4",
+      "org.opencontainers.image.version": "1.50.1",
       "space.megabyte.type": "linter"
     },
     "env_vars": [
@@ -55,19 +55,19 @@
       "exe_path": ""
     }
   },
-  "minified_image_size": 44630811,
+  "minified_image_size": 44641455,
   "minified_image_size_human": "45 MB",
   "minified_image": "megabytelabs/golangci-lint:slim",
   "minified_image_has_data": true,
-  "minified_by": 7.6251980946525935,
-  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/83ed40222768f3df001cc8bc3b03bda3c5336b8ff1c6633040aa7f81891c31e6/artifacts",
+  "minified_by": 7.623379995118887,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/c8c9a2e789dac51f6d2a17069cb3f377dc55bb470c8d5ae651f85b31077e21d3/artifacts",
   "container_report_name": "creport.json",
   "seccomp_profile_name": "megabytelabs-golangci-lint-seccomp.json",
   "apparmor_profile_name": "megabytelabs-golangci-lint-apparmor-profile",
   "image_stack": [
     {
       "is_top_image": true,
-      "id": "sha256:83ed40222768f3df001cc8bc3b03bda3c5336b8ff1c6633040aa7f81891c31e6",
+      "id": "sha256:c8c9a2e789dac51f6d2a17069cb3f377dc55bb470c8d5ae651f85b31077e21d3",
       "full_name": "megabytelabs/golangci-lint:latest",
       "repo_name": "megabytelabs/golangci-lint",
       "version_tag": "latest",
@@ -397,8 +397,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.creat...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-24T02:49:32-04:00\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-24T02:49:32-04:00\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.created=2022-10-27T22:52:03-04:00\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.created=2022-10-27T22:52:03-04:00\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
@@ -453,9 +453,9 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.revis...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=00b2bb8b99a42b5d466764794e9e70057958c66e\"]",
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.revision=e6155789019eb17289953abd0f92e4a9f75102bf\"]",
           "system_commands": [
-            "[\"LABEL\",\"org.opencontainers.image.revision=00b2bb8b99a42b5d466764794e9e70057958c66e\"]"
+            "[\"LABEL\",\"org.opencontainers.image.revision=e6155789019eb17289953abd0f92e4a9f75102bf\"]"
           ],
           "comment": "buildkit.dockerfile.v0"
         },
@@ -509,8 +509,8 @@
           "layer_index": 0,
           "size": 0,
           "command_snippet": "RUN [\"LABEL\",\"org.opencontainers.image.versi...",
-          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.version=1.50.4\"]",
-          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.version=1.50.4\"]"],
+          "command_all": "RUN [\"LABEL\",\"org.opencontainers.image.version=1.50.1\"]",
+          "system_commands": ["[\"LABEL\",\"org.opencontainers.image.version=1.50.1\"]"],
           "comment": "buildkit.dockerfile.v0"
         },
         {
